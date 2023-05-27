@@ -76,11 +76,9 @@ async def parse_characters(url, session):
         )
         asyncio.create_task(paste_to_db(**character_obj))
 
-tasks = asyncio.all_tasks() - {
-    asyncio.current_task(),
-}
-for task in tasks:
-    await task
+    tasks = asyncio.all_tasks() - {asyncio.current_task(), }
+    for task in tasks:
+        await task
 
 
 async def main():
