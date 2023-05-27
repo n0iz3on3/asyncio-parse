@@ -2,6 +2,7 @@ import datetime
 import aiohttp
 import asyncio
 
+
 from model import Base, Session, SwapiPeople, engine
 
 
@@ -22,7 +23,6 @@ async def parse_characters(session):
         response = await fetch_data(session, url)
         total_characters = response['count']
         characters = response['results']
-        tasks = []
 
         while len(characters) < total_characters:
             next_page = response['next']
@@ -97,5 +97,6 @@ async def main():
 
 if __name__ == '__main__':
     start = datetime.datetime.now()
+    print('Start process')
     asyncio.run(main())
-    print(datetime.datetime.now() - start)
+    print(f'Process finished at: {datetime.datetime.now() - start}')
