@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```python
 docker-compose up -d
 ```
-3. Запустить приложение выполнив последовательно:
+3. Запустить приложение:
 ```python
 python main.py
 ```
